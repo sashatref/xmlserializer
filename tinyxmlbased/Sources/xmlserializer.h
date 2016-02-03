@@ -9,9 +9,9 @@ using namespace tinyxml2;
 /*!
  * \brief The XmlSerializer class
  * позволяет сохранять/загружать состояние класса в xml структуру
- * поддерживаются списки QVector<T>, QString<T>, базовые типы: int, double, bool, QString
+ * поддерживаются списки std::vector<T>, базовые типы: int, double, bool, std::string
  * для возможности сериалиазации необходимо объявить для нужно класса два метода:
- *  friend void xmlSerialize(const MySqlSettings &_value, QDomElement *element, QDomDocument *doc, XmlSerializer *ser)
+ *  friend void xmlSerialize(const MySqlSettings &_value, XMLElement *element, XMLDocument *doc, XmlSerializer *ser)
     {
         ser->serialize(_value.m_dbAdress,   "m_dbAdress",   element, doc, XmlSerializer::Attribute);
         ser->serialize(_value.m_dbName,     "m_dbName",     element, doc, XmlSerializer::Attribute);
@@ -20,7 +20,7 @@ using namespace tinyxml2;
         ser->serialize(_value.m_dbUser,     "m_dbUser",     element, doc, XmlSerializer::Attribute);
     }
 
-    friend void xmlDeserialize(MySqlSettings &_value, QDomElement *element, XmlSerializer *ser)
+    friend void xmlDeserialize(MySqlSettings &_value, XMLElement *element, XmlSerializer *ser)
     {
         ser->deserialize(_value.m_dbAdress,   "m_dbAdress",   element, XmlSerializer::Attribute);
         ser->deserialize(_value.m_dbName,     "m_dbName",     element, XmlSerializer::Attribute);
