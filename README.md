@@ -37,3 +37,5 @@
   XmlSerializer::save(m_settings, path, "Settings") 
   ```
   загрузить или сохранить состояние.
+
+Для использования версии основанной на TinyXml необходимо сначала собрать библиотеку tinyxml2, для этого можно использовать скрипты tinyxmlbased\tinyxml2\vcproj_Build_tinyXML.cmd или tinyxmlbased\tinyxml2\vcproj_Build_tinyXML static.cmd в который указать путь к иснтрументам msvc. Или открыть проект в Visual Studio и собрать из неё.
