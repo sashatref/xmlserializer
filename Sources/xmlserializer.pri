@@ -4,7 +4,14 @@ DEPENDPATH += $$PWD
 SOURCES += $$PWD/xmlserializer.cpp
 HEADERS += $$PWD/xmlserializer.h
 
-LIBS += -L$$PWD/../tinyxml2 -ltinyxml2
+LIBS += -L$$PWD/../tinyxml2/Builds
 
-INCLUDEPATH += $$PWD/../tinyxml2
-DEPENDPATH += $$PWD/../tinyxml2
+CONFIG(debug, debug|release) {
+    LIBS += -ltinyxml2_d
+}
+CONFIG(release, debug|release) {
+    LIBS += -ltinyxml2
+}
+
+INCLUDEPATH += $$PWD/../tinyxml2/Sources
+DEPENDPATH += $$PWD/../tinyxml2/Sources

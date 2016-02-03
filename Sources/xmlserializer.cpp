@@ -112,6 +112,8 @@ bool XmlSerializer::deserialize(int &_value, const std::string &_nodeName, const
     return true;
 }
 
+#pragma warning(push, 0)
+
 bool XmlSerializer::deserialize(bool &_value, const std::string &_nodeName, const XMLElement * const _element, int _type) const
 {
     const XMLElement *subElement = 0;
@@ -150,6 +152,7 @@ bool XmlSerializer::deserialize(bool &_value, const std::string &_nodeName, cons
 
     return true;
 }
+#pragma warning(pop)
 
 bool XmlSerializer::deserialize(std::string &_value, const std::string &_nodeName, const XMLElement * const _element, int _type) const
 {
